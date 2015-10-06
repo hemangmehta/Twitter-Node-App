@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= Title %></title>
+    <% include partials/scripts.ejs %>
+</head>
+<body>
+<section id="container">
+
+    <% include partials/header.ejs %>
+
+    <section id="main-content">
+        <section class="wrapper">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="">
+                        <form action="/tweet" method="post" name="frn_tweet">
+                            <h3 class="text-info"><span class="fa fa-twitter"></span>CREATE NEW TWEET</h3>
+                            <textarea name="tweet" maxlength="140" placeholder="Enter Your Text"
+                                      style="min-height:100px;width: 100%"></textarea><br/><br/>
+                            <div style="float: right">
+                                <span>140</span>
+                                <button type="submit" name="btn_submit"><b>Tweet</b></button>
+                            </div>
+                        </form>
+                    </div>
+                    <br/>
+                </div>
+                <div class="col-lg-6 ds">
+                    <!--COMPLETED ACTIONS DONUTS CHART-->
+                    <h3>TWEETS</h3>
+                    <!-- First Action -->
+                    <% for(var i = 0; i < data.length; i++) { %>
+                    <div class="desc">
+                        <div class="thumb">
+                            <span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                        </div>
+                        <div class="details">
+                            <p>
+                                <muted>create at <%= moment(data[i].createdAt).format('MM DD YYYY HH:mm:ss') %></muted>
+                                <br/>
+                                <a target="_blank"
+                                   href="https://twitter.com/<%= user.twitter.username %>"><%= user.twitter.displayName %></a><%= data[i].tweet %>
+                                <br/>
+                            </p>
+                        </div>
+                    </div>
+                    <% } %>
+                </div>
+                <!-- /col-lg-3 -->
+            </div>
+        </section>
+    </section>
+    <% include partials/footer.ejs %>
+</section>
+</body>
+</html>

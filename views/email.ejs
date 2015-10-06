@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title><%= Title %></title>
+	<% include partials/scripts.ejs%>
+</head>
+<body>
+<div id="login-page">
+	<div class="container">
+		<form class="form-login" action="/saveEmail" method="post" name="loginform">
+			<h2 class="form-login-heading">Register Email</h2>
+			<div class="login-wrap">
+				<input type="text" class="form-control" placeholder="Email ID" name="email" autofocus>
+				<br/>
+				<button class="btn btn-theme btn-block" href="index.html" type="submit">REGISTER</button>
+				<hr>
+				<a href="/profile" style="float: right;" href="index.html" type="submit">skip >></a>
+				<div>&nbsp;</div>
+			</div>
+		</form>
+	</div>
+</div>
+<% include partials/footer.ejs%>
+</body>
+</html>
